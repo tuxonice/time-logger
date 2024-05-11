@@ -1,0 +1,134 @@
+[
+    {
+        "id": 1,
+        "name": "Moon rocket",
+        "tasks": [
+            {
+                "id": 1,
+                "name": "Mission Planning and Objectives",
+                "bookings": [
+                    {
+                        "description": "Define the primary and secondary objectives of the moon mission.",
+                        "key": "84c7cee3-6858-459e-81a7-98ec46c8be20",
+                        "start": 1716141020,
+                        "end": 1716142020
+                    },
+                    {
+                        "description": "Develop a detailed mission plan, including key milestones.",
+                        "key": "9af83534-1266-401d-88bc-6e220ed23d4b",
+                        "start": 1716143020,
+                        "end": 1716144020
+                    },
+                    {
+                        "description": "Create risk assessment and mitigation strategies.",
+                        "key": "e4a91861-1ff9-4bb2-b160-12252ab9a5ff",
+                        "start": 1716145020,
+                        "end": 1716146020
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "name": "Design and Development of Rocket",
+                "bookings": [
+                    {
+                        "description": "Develop preliminary designs for the moon rocket and lander.",
+                        "key": "c938aa30-3b54-407d-8f2e-a702226d7ba4",
+                        "start": 1716141020,
+                        "end": 1716142020
+                    },
+                    {
+                        "description": "Conduct engineering and feasibility studies.",
+                        "key": "2db4f8c3-e0cd-4cac-805a-7fd2f08cbc04",
+                        "start": 1716143020,
+                        "end": 1716144020
+                    },
+                    {
+                        "description": "Conduct engineering and feasibility studies.",
+                        "key": "e513a000-5a75-4b9c-9961-bc6047df029e",
+                        "start": 1716145020,
+                        "end": 1716146020
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "name": "Regulatory Compliance and Permits",
+                "bookings": [
+                    {
+                        "description": "Research and comply with international space regulations.",
+                        "key": "177c4f37-ccf3-4c13-886f-0d9714ce4aee",
+                        "start": 1716141020,
+                        "end": 1716142020
+                    },
+                    {
+                        "description": "Apply for and obtain necessary permits and clearances.",
+                        "key": "96bb1af0-5c27-450e-ad52-0029947792d2",
+                        "start": 1716143020,
+                        "end": 1716144020
+                    },
+                    {
+                        "description": "Ensure ongoing compliance with regulatory requirements.",
+                        "key": "136e9993-c087-443c-b4eb-19f6a4d8150d",
+                        "start": 1716145020,
+                        "end": 1716146020
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "ChronoQuest Project",
+        "tasks": [
+            {
+                "id": 1,
+                "name": "Conceptual Design and Theoretical Framework",
+                "bookings": [
+                    {
+                        "description": "Develop a theoretical framework based on current understanding of temporal mechanics",
+                        "key": "1ef08917-e504-4058-9fcc-0d893b3cea7c",
+                        "start": 1716140020,
+                        "end": 1716141020
+                    },
+                    {
+                        "description": "Design preliminary concepts for the time machine.",
+                        "key": "4dc48d99-7957-407f-af0f-8bd877cf7c45",
+                        "start": 1716142020,
+                        "end": 1716143020
+                    },
+                    {
+                        "description": "Conduct feasibility studies to validate the theoretical approach.",
+                        "key": "0e17a719-5099-4c35-994d-2231b312a123",
+                        "start": 1716144020,
+                        "end": 1716145020
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "name": "Temporal Navigation and Control Systems",
+                "bookings": [
+                    {
+                        "description": "Develop navigation systems for precise temporal targeting.",
+                        "key": "794e3a42-e3eb-4cad-88ec-48469787e2bd",
+                        "start": 1716141020,
+                        "end": 1716142020
+                    },
+                    {
+                        "description": "Create control interfaces for real-time monitoring and adjustment during time travel.",
+                        "key": "b4cdaa57-980f-4157-b1f0-16f68c8fb31b",
+                        "start": 1716143020,
+                        "end": 1716144020
+                    },
+                    {
+                        "description": "Integrate advanced AI for adaptive navigation and error correction.",
+                        "key": "bbe2534e-078d-43df-8701-d3aaaefca729",
+                        "start": 1716145020,
+                        "end": 1716146020
+                    }
+                ]
+            }
+        ]
+    }
+]

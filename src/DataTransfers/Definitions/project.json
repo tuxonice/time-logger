@@ -1,0 +1,63 @@
+{
+  "transfers": [
+    {
+      "name": "Project",
+      "properties": [
+        {
+          "name": "id",
+          "type": "int"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "tasks",
+          "type": "TaskTransfer[]",
+          "singular": "task"
+        }
+      ]
+    },
+    {
+      "name": "Task",
+      "properties": [
+        {
+          "name": "id",
+          "type": "int"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "bookings",
+          "type": "BookingTransfer[]",
+          "singular": "booking"
+        }
+      ]
+    },
+    {
+      "name": "Booking",
+      "properties": [
+        {
+          "name": "description",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "start",
+          "type": "int"
+        },
+        {
+          "name": "end",
+          "type": "int",
+          "nullable": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+.idea
+/vendor
+.env
+/public/*
+!/public/index.php
+!/public/.htaccess
+/Makefile
+/docker/
+/docker-bin/
+/docker-compose.yml

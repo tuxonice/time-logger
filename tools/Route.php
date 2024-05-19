@@ -1,5 +1,7 @@
 <?php
 
+namespace app\tools;
+
 require 'Api.php';
 
 class Route
@@ -16,6 +18,9 @@ class Route
         switch ($type) {
             case '--help':
                 $this->showHelp();
+                break;
+            case '--status':
+                $this->showStatus();
                 break;
             case '-p':
                 $this->handleProject($action, $argument);
@@ -38,7 +43,7 @@ class Route
                 $this->timeLoggerApi->getProjectList();
                 break;
             case 'use':
-                $this->timeLoggerApi->useProject($argument);
+                $this->timeLoggerApi->useProject((int)$argument);
                 break;
             case 'create':
                 $this->timeLoggerApi->createProject($argument);
@@ -55,7 +60,7 @@ class Route
                 $this->timeLoggerApi->getTaskList();
                 break;
             case 'use':
-                $this->timeLoggerApi->useTask($argument);
+                $this->timeLoggerApi->useTask((int)$argument);
                 break;
             case 'create':
                 $this->timeLoggerApi->createTask($argument);
@@ -79,7 +84,12 @@ class Route
         }
     }
 
-    private function showHelp()
+    private function showStatus(): void
+    {
+        $this->timeLoggerApi->showStatus();
+    }
+
+    private function showHelp(): void
     {
         $text = <<<'EOF'
 Usage:
@@ -89,6 +99,7 @@ Options:
   --help            Display this help
 
 Available commands:
+  --status                      Show project status
   -p list                       List projects
   -p use <project_id>           Switch to a project
   -p create <project_name>      Create a new project
@@ -100,6 +111,6 @@ Available commands:
   -b stop <description>         Stop booking task
 EOF;
 
-        echo($text."\n");
+        echo($text . "\n");
     }
 }

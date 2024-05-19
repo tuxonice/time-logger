@@ -1,6 +1,8 @@
 #!/usr/bin/env php
 <?php
 
+use app\tools\Route;
+
 require 'Route.php';
 
 $type = $argv[1] ?? '';

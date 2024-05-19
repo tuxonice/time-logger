@@ -3,6 +3,7 @@
     <description>The coding standard</description>
 	<file>src</file>
 	<file>bootstrap.php</file>
+	<file>tools</file>
     <file>public/index.php</file>
     <file>bin/console</file>
     <exclude-pattern>/src/Resources/*</exclude-pattern>

@@ -8,3 +8,4 @@
 /docker/
 /docker-bin/
 /docker-compose.yml
+/tools/.config.json

@@ -1,0 +1,7 @@
+{
+    "baseUrl": "https://logger.example.com"
+    "token": "api-bearer-token",
+    "currentProject": null,
+    "currentTask": null,
+    "currentKey": null
+}

@@ -1,0 +1,3 @@
+[submodule "time-logger-cli"]
+	path = time-logger-cli
+	url = git@github.com:tuxonice/time-logger-cli.git

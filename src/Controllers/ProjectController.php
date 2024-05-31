@@ -4,6 +4,7 @@ namespace TimeLogger\Controllers;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 use TimeLogger\DataTransfers\DataTransferObjects\ProjectTransfer;
 use TimeLogger\Reader\DataReader;
 use TimeLogger\Writer\DataWriter;
@@ -61,6 +62,56 @@ class ProjectController
         }
 
         return new JsonResponse($output);
+    }
+
+    public function export(string $projectId): StreamedResponse
+    {
+        $projectId = (int)$projectId;
+
+        $data = $this->dataReader->read();
+
+        $header = [
+            'project',
+            'task',
+            'description',
+            'start',
+            'stop',
+            'duration',
+        ];
+        $bookings = [];
+        foreach ($data as $projectTransfer) {
+            if ($projectTransfer->getId() === $projectId) {
+                foreach ($projectTransfer->getTasks() as $taskTransfer) {
+                    foreach ($taskTransfer->getBookings() as $bookingTransfer) {
+                        $bookings[] = [
+                            'project' => $projectTransfer->getName(),
+                            'task' => $taskTransfer->getName(),
+                            'description' => $bookingTransfer->getDescription(),
+                            'start' => date('c', $bookingTransfer->getStart()),
+                            'stop' => date('c',$bookingTransfer->getEnd()),
+                            'duration' => round(($bookingTransfer->getEnd() - $bookingTransfer->getStart()) / (60 * 60),2)
+                        ];
+                    }
+                }
+                break;
+            }
+        }
+
+        return new StreamedResponse(
+            function () use ($bookings, $header) {
+                $handle = fopen('php://output', 'w');
+                fputcsv($handle, $header, ";");
+                foreach ($bookings as $row) {
+                    fputcsv($handle, $row, ";");
+                }
+                fclose($handle);
+            },
+            200,
+            [
+                'Content-type' => 'text/csv',
+                'Content-Disposition' => 'attachment; filename=bookings.csv',
+            ]
+        );
     }
 
     public function update(Request $request, string $projectId): JsonResponse

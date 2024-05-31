@@ -1,5 +1,11 @@
 # Time Logger
 
+## A Time Booking API
+
+## Introduction
+
+This simple and versatile API is designed to help you seamlessly track time bookings for projects and tasks. 
+
 ## projects
 ### Create project
 `POST projects/create`
@@ -11,12 +17,69 @@
   "name": "Acme project"
 }
 ```
+#### Result
+
+```
+{
+    "id": 1,
+    "name": "Acme project",
+    "tasks": []
+}
+```
 
 ### Get projects data
 `GET projects/{projectId}`
 
+#### Result
+
+```
+{
+    "id": 1,
+    "name": "Acme project",
+    "tasks": []
+}
+```
+
 ### List projects
 `GET projects/list`
+
+#### Result
+
+```
+[
+    {
+        "id": 1,
+        "name": "Project 1",
+        "tasks": [
+            {
+                "id": 1,
+                "name": "Task 1",
+                "bookings": [
+
+                ]
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Project 2",
+        "tasks": [
+            {
+                "id": 1,
+                "name": "Task 1",
+                "bookings": [
+                    {
+                        "description": "Make some code",
+                        "key": "018fb158-b384-766a-b48f-2e67f7626662",
+                        "start": 1716667331,
+                        "end": 1716670352
+                    }
+                ]
+            }
+        ]
+    }
+]
+```
 
 ### Update project
 `PUT projects/{projectId}`
@@ -76,8 +139,8 @@
 }
 ```
 
-### End booking
-`PUT projects/{projectId}/tasks/{taskId}/bookings/end`
+### Stop booking
+`PUT projects/{projectId}/tasks/{taskId}/bookings/stop`
 
 #### Payload
 
@@ -97,3 +160,8 @@
 ### Delete booking
 `DELETE projects/{projectId}/tasks/{taskId}/booking/{bookingId}`
 
+### Export project bookings
+`GET projects/{projectId}/export`
+
+### Export task bookings
+`GET projects/{projectId}/task/{taskId}/export`

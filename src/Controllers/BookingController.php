@@ -45,7 +45,7 @@ class BookingController
         return new JsonResponse(['error' => 'Project not found'], 404);
     }
 
-    public function end(Request $request, string $projectId, string $taskId): JsonResponse
+    public function stop(Request $request, string $projectId, string $taskId): JsonResponse
     {
         $projectId = (int)$projectId;
         $taskId = (int)$taskId;

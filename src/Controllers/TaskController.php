@@ -121,8 +121,8 @@ class TaskController
                                 'task' => $taskTransfer->getName(),
                                 'description' => $bookingTransfer->getDescription(),
                                 'start' => date('c', $bookingTransfer->getStart()),
-                                'stop' => date('c',$bookingTransfer->getEnd()),
-                                'duration' => round(($bookingTransfer->getEnd() - $bookingTransfer->getStart()) / (60 * 60),2)
+                                'stop' => date('c', $bookingTransfer->getEnd()),
+                                'duration' => round(($bookingTransfer->getEnd() - $bookingTransfer->getStart()) / (60 * 60), 2)
                             ];
                         }
                     }

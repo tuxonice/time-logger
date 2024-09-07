@@ -28,6 +28,5 @@ class Web implements RouteInterface
         $r->addRoute('GET', '/projects/{projectId}/tasks/{taskId}/bookings/list', ['TimeLogger\Controllers\BookingController','list']);
         $r->addRoute('GET', '/projects/{projectId}/tasks/{taskId}/bookings/{bookingId}', ['TimeLogger\Controllers\BookingController','read']);
         $r->addRoute('DELETE', '/projects/{projectId}/tasks/{taskId}/bookings/{bookingId}', ['TimeLogger\Controllers\BookingController','delete']);
-
     }
 }

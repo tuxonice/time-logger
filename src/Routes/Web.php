@@ -8,6 +8,7 @@ class Web implements RouteInterface
 {
     public static function routes(RouteCollector $r): void
     {
+        $r->addRoute('GET', '/projects/export', ['TimeLogger\Controllers\ProjectController','exportAll']);
         $r->addRoute('POST', '/projects/create', ['TimeLogger\Controllers\ProjectController','create']);
         $r->addRoute('GET', '/projects/{projectId}/export', ['TimeLogger\Controllers\ProjectController','export']);
         $r->addRoute('GET', '/projects/{projectId}', ['TimeLogger\Controllers\ProjectController','read']);

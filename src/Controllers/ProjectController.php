@@ -114,6 +114,51 @@ class ProjectController
         );
     }
 
+    public function exportAll(): StreamedResponse
+    {
+        $data = $this->dataReader->read();
+
+        $header = [
+            'project',
+            'task',
+            'description',
+            'start',
+            'stop',
+            'duration',
+        ];
+        $bookings = [];
+        foreach ($data as $projectTransfer) {
+            foreach ($projectTransfer->getTasks() as $taskTransfer) {
+                foreach ($taskTransfer->getBookings() as $bookingTransfer) {
+                    $bookings[] = [
+                        'project' => $projectTransfer->getName(),
+                        'task' => $taskTransfer->getName(),
+                        'description' => $bookingTransfer->getDescription(),
+                        'start' => date('c', $bookingTransfer->getStart()),
+                        'stop' => date('c',$bookingTransfer->getEnd()),
+                        'duration' => round(($bookingTransfer->getEnd() - $bookingTransfer->getStart()) / (60 * 60),2)
+                    ];
+                }
+            }
+        }
+
+        return new StreamedResponse(
+            function () use ($bookings, $header) {
+                $handle = fopen('php://output', 'w');
+                fputcsv($handle, $header, ";");
+                foreach ($bookings as $row) {
+                    fputcsv($handle, $row, ";");
+                }
+                fclose($handle);
+            },
+            200,
+            [
+                'Content-type' => 'text/csv',
+                'Content-Disposition' => 'attachment; filename=bookings.csv',
+            ]
+        );
+    }
+
     public function update(Request $request, string $projectId): JsonResponse
     {
         $projectId = (int)$projectId;
